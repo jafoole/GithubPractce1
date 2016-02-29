@@ -32,6 +32,12 @@ public class ActorArrayAdapter extends ArrayAdapter<Actor> {
         TextView actorDOBTextView = (TextView) actorLayoutView.findViewById(R.id.actorDOBTextView);
         TextView actorOscarTextView = (TextView) actorLayoutView.findViewById(R.id.actorOscarTextView);
 
+        Actor getActors = mActors.get(position);
+
+
+        actorNameTextView.setText(getActors.getName());
+        actorDOBTextView.setText(getActors.getmDOB());
+        actorOscarTextView.setText(getActors.getmOscars());
 
         return actorLayoutView;
     }

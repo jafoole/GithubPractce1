@@ -13,6 +13,22 @@ public class Actor {
     String mDOB;
     String mOscars;
 
+    public String getmDOB() {
+        return mDOB;
+    }
+
+    public void setmDOB(String mDOB) {
+        this.mDOB = mDOB;
+    }
+
+    public String getmOscars() {
+        return mOscars;
+    }
+
+    public void setmOscars(String mOscars) {
+        this.mOscars = mOscars;
+    }
+
     public Actor(String name, String dob, String oscars) {
         this.mName = name;
         this.mDOB = dob;

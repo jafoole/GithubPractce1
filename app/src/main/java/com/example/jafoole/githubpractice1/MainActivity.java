@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
     private ArrayList<Actor> mActorArrayList;
-    private ArrayAdapter<String> mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,29 +26,30 @@ public class MainActivity extends AppCompatActivity {
 
         ///Below we will implement the custom adapter.
 
-        mListView = (ListView)findViewById(R.id.actorListView);
+        mListView = (ListView) findViewById(R.id.actorListView);
 
         mActorArrayList = new ArrayList<Actor>();
 
         populateActorArray();
 
-        ActorArrayAdapter adapter = new ActorArrayAdapter(MainActivity.this, mListView);
+        ActorArrayAdapter mAdapter = new ActorArrayAdapter(MainActivity.this, mActorArrayList);
         mListView.setAdapter(mAdapter);
 
 
-
     }
-
     private void populateActorArray() {
-        if (mListView == null){
-            mListView = new ArrayList<Actor>();
+        if (mActorArrayList == null) {
+            mActorArrayList = new ArrayList<Actor>();
         }
 
-        mListView.add("Leonardo DiCaprio", "November 11, 1974", "1");
-        mListView.add("Matt Damon", "October 8, 1970", "1");
-        mListView.add("Jennifer Lawrence", "August 15, 1990", "1");
+        mActorArrayList.add(new Actor("Leonardo DiCaprio", "November 11, 1974", "1"));
+        mActorArrayList.add(new Actor("Matt Damon", "October 8, 1970", "1"));
+        mActorArrayList.add(new Actor("Jennifer Lawrence", "August 15, 1990", "1"));
 
 
     }
+
+
 }
+
 
