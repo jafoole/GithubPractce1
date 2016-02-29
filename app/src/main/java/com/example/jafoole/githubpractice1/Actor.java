@@ -9,7 +9,15 @@ public class Actor {
 
     private static ArrayList<String> mActorRoster;
     private static Actor instance;
-    String name;
+    String mName;
+    String mDOB;
+    String mOscars;
+
+    public Actor(String name, String dob, String oscars) {
+        this.mName = name;
+        this.mDOB = dob;
+        this.mOscars = oscars;
+    }
 
     public static ArrayList<String> getmActorRoster() {
         return mActorRoster;
@@ -24,17 +32,12 @@ public class Actor {
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.mName = name;
     }
 
-    public static Actor getInstance() {
-        if (instance == null) {
-            instance = new Actor();
-        }
-        return instance;
-    }
+
 }
