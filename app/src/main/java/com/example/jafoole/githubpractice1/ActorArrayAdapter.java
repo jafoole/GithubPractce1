@@ -19,22 +19,25 @@ public class ActorArrayAdapter extends ArrayAdapter<Actor> {
     public ActorArrayAdapter(Context context, ArrayList<Actor> actors) {
         super(context, -1);
         mActors = actors;
+    }
 
-        public View getView ( int position, View convertView, ViewGroup parent){
-            Actor currentActor = mActors.get(position);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        Context context = getContext();
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View actorLayoutView = inflater.inflate(R.layout.actor_layouts, parent, false);
 
-            Context context = getContext();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        Actor currentActor = mActors.get(position);
 
-            View actorLayoutView = inflater.inflate(R.layout.actor_layouts, parent, false);
+        TextView actorNameTextView = (TextView) actorLayoutView.findViewById(R.id.actorNameTextView);
+        TextView actorDOBTextView = (TextView) actorLayoutView.findViewById(R.id.actorDOBTextView);
+        TextView actorOscarTextView = (TextView) actorLayoutView.findViewById(R.id.actorOscarTextView);
 
-            TextView actorNameTextView = (TextView) actorLayoutView.findViewById(R.id.actorNameTextView);
-            TextView actorDOBTextView = (TextView) actorLayoutView.findViewById(R.id.actorDOBTextView);
-            TextView actorOscarTextView = (TextView) actorLayoutView.findViewById(R.id.actorOscarTextView);
 
-            actorNameTextView.setText(currentActor.getName());
+        return actorLayoutView;
+    }
 
-            return actorLayoutView;
-        }
+    @Override
+    public int getCount() {
+        return mActors.size();
     }
 }
